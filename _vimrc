@@ -153,6 +153,9 @@ noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 let g:fuzzy_ceiling=20000
 let g:fuzzy_matching_limit=25
 let g:fuzzy_ignore = "gems/*, log/*"
+map <leader>b :FuzzyFinderBuffer<CR>
+
+
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
@@ -170,6 +173,12 @@ let Grep_Find_Path = 'C:\GnuWin32\bin\find.exe '
 let Grep_Xargs_Path = 'C:\GnuWin32\bin\xargs.exe ' 
 
 map <F4> :cn<CR>
+autocmd BufRead,BufNewFile *.rb map <F5> :% w !ruby<CR>
+autocmd BufRead,BufNewFile *.rb map <C-F5> :w<cr>:setlocal makeprg=ruby\ -c\ %:r.rb\ %<cr>:make<cr> :copen<cr><cr> 
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
 
 map <C-F8> :TlistToggle<CR>  
 let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的
@@ -179,7 +188,6 @@ let Tlist_Enable_Fold_Column = 0
 let Tlist_File_Fold_Auto_Close = 0
 let Tlist_Display_Prototype = 0
 let Tlist_Compact_Format = 1 
-
 
 
 " 把 F8 映射到 启动NERDTree插件  
