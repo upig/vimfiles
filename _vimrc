@@ -133,18 +133,18 @@ set fenc=utf-8
 " 设置文件编码检测类型及支持格式  
 set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936  
 color blackboard
-let g:browser = '"C:/Program Files/Mozilla Firefox/firefox.exe"  -new-tab'  
+let g:browser = '"C:/Program Files/Mozilla Firefox/firefox.exe"  -new-tab '  
 " Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
 function! OpenRubyDoc(keyword)
   let url = 'http://apidock.com/ruby/'.a:keyword
-  call system('"C:/Program Files/Mozilla Firefox/firefox.exe"  -new-tab '.url)
+  call system(g:browser.url)
 endfunction           
 noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
 
 " Open the Rails ApiDock page for the word under cursos, in a new Firefox tab
 function! OpenRailsDoc(keyword)
   let url = 'http://apidock.com/rails/'.a:keyword
-  call system('"C:/Program Files/Mozilla Firefox/firefox.exe"  -new-tab '.url)
+  call system(g:browser.url)
 endfunction
 noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 
