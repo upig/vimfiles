@@ -177,7 +177,6 @@ autocmd BufRead,BufNewFile *.rb map <F5> :% w !ruby<CR>
 autocmd BufRead,BufNewFile *.rb map <C-F5> :w<cr>:setlocal makeprg=ruby\ -c\ %:r.rb\ %<cr>:make<cr> :copen<cr><cr> 
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
-noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 
 map <C-F8> :TlistToggle<CR>  
