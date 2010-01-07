@@ -170,20 +170,13 @@ let Grep_Find_Path = 'C:\GnuWin32\bin\find.exe '
 let Grep_Xargs_Path = 'C:\GnuWin32\bin\xargs.exe ' 
 
 map <F4> :cn<CR>
-"let g:rails_search_url= "http://apidock.com/rails/"
 
 map <C-F8> :TlistToggle<CR>  
-"let Tlist_Use_SingleClick = 1
-"let Tlist_WinWidth = 20
 let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
-let Tlist_Auto_Open = 0
-let Tlist_Auto_Update = 1
-let Tlist_Hightlight_Tag_On_BufEnter = 1
 let Tlist_Enable_Fold_Column = 0
 let Tlist_File_Fold_Auto_Close = 0
-let Tlist_Process_File_Always = 1
 let Tlist_Display_Prototype = 0
 let Tlist_Compact_Format = 1 
 

@@ -1,5 +1,7 @@
-h1.使用方法
+h1. 使用方法
+
 先将本目录整个放入C:\Documents and Settings\magic\之类的目录中去，
 然后将本目录中的_vimrc文件单独拷贝到C:\Documents and Settings\magic\目录中即可
-其中magic是用户名，请改为你自己的用户我中。
+其中magic是用户名，请改为你自己的用户名。
 FOR WINDOWS XP。 如果是WINDOWS 7，请放到自己的主目录中，好像是c:\usrs\magic之类
+
