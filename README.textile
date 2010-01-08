@@ -2,19 +2,20 @@ h1. GVIM 7.2 配置文件在Windows XP下的使用方法
 
 = 将本目录整个拷入C:\Documents and Settings\magic\之类的目录中去，
 = 然后将本目录中的_vimrc文件单独拷贝到C:\Documents and Settings\magic\目录中
-= 安装本目录中的MONACO.TTF字体
+= 安装本目录中的MONACO.TTF字体（拷到控制面板的字体中去）
 = 将Globals.rb拷到C:\ruby\lib\ruby\gems\1.8\gems\fxri-0.3.6\lib\复盖，改善fxri字体与大小
-= 确保已经安装firefox，以及本目录中的find与grep工具
+= 确保已经安装firefox，以及find与grep工具(本目录中有)
 = 在_vimrc中修改改$PATH,确保其中包含有grep与find工具目录、firefox目录，以及本vimfiles目录等
 
 特别说明：
 以上目录都是示例目录，比如其中magic是用户名，请改为你自己的用户名。
 
-下面是一些工具的下载地址：
+下面是一些工具以及vim中文帮助文档的下载地址：
 http://msysgit.googlecode.com/files/Git-1.6.1-preview20081227.exe
 http://cdnetworks-kr-1.dl.sourceforge.net/project/gnuwin32/grep/2.5.4/grep-2.5.4-setup.exe
 http://cdnetworks-kr-1.dl.sourceforge.net/project/gnuwin32/findutils/4.2.20-2/findutils-4.2.20-2.exe
 http://cdnetworks-kr-1.dl.sourceforge.net/project/ctags/ctags/5.8/ctags58.zip
+http://sourceforge.net/projects/vimcdoc/
 
 向为 2010-01-07 21:19:07
 
