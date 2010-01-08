@@ -128,8 +128,16 @@ endi
 autocmd GUIEnter * simalt ~x
 set guifont=Monaco:h11
 set gfw=Fixedsys:h11
+
 " 设置编码  
 set enc=utf-8 
+set fileencodings=utf-8,chinese,latin-1
+
+" 设置消息提示为中文
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+language message zh_CN.utf-8
+
 " 设置文件编码  
 set fenc=utf-8  
 " 设置文件编码检测类型及支持格式  
