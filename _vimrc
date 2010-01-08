@@ -1,5 +1,7 @@
 source ~/vimfiles/vimrc
 
+let $PATH='C:/Program Files/Mozilla Firefox/;C:\Documents and Settings\magic\vimfiles\;C:\GnuWin32\bin\;'.$PATH
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
@@ -157,7 +159,6 @@ let Grep_Skip_Dirs = '.svn .git'
 "let Grep_Find_Path = path_gunwin32.'find.exe ' 
 "let Grep_Xargs_Path = path_gunwin32.'xargs.exe ' 
 
-let $PATH=$PATH.'C:/Program Files/Mozilla Firefox/;C:\Documents and Settings\magic\vimfiles\;C:\GnuWin32\bin\'
 
 autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
 
@@ -193,11 +194,11 @@ function! s:XwSetRubyConfig()
     let g:rubycomplete_rails = 1
     let g:rubycomplete_classes_in_global = 1
     source  ~/vimfiles/ftplugin/ri.vim
-    let g:browser = '"C:/Program Files/Mozilla Firefox/firefox.exe"  -new-tab '  
+    let g:browser = '"firefox.exe"  -new-tab '  
 
     noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
     noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
-    noremap RI :call OpenRIDoc(expand('<cword>'))<CR>
+    noremap <F1> :call OpenRIDoc(expand('<cword>'))<CR>
 endfunction
 
 map <F4> :cn<CR>
