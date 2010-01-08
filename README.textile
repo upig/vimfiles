@@ -4,7 +4,8 @@ h1. GVIM 7.2 配置文件在Windows XP下的使用方法
 = 将findutils-4.2.20-2.exe与grep-2.5.4-setup.exe安装到C:\GnuWin32目录下
 = 将firefox安装到C:/Program Files/Mozilla Firefox目录下
 = 将本目录整个拷入C:\Documents and Settings\magic\之类的目录中去，
-= 然后将本目录中的_vimrc文件单独拷贝到C:\Documents and Settings\magic\目录中即可
+= 然后将本目录中的_vimrc与.irbrc文件单独拷贝到C:\Documents and Settings\magic\目录中即可
+= .irbrc 要配合 gem install fastri才能在irb中快速查找
 
 特别说明：
 
