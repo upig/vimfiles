@@ -7,6 +7,7 @@ h1. GVIM 7.2 配置文件在Windows XP下的使用方法
 = 然后将本目录中的_vimrc与.irbrc文件单独拷贝到C:\Documents and Settings\magic\目录中即可
 = .irbrc 要配合 gem install fastri才能在irb中快速查找
 = 将Globals.rb拷到C:\ruby\lib\ruby\gems\1.8\gems\fxri-0.3.6\lib\复盖，改善fxri字体与大小
+= 如果有必要，请在_vimrc中更改$PATH,确保其中包含有grep工具目录、firefox目录，vimfiles目录等
 
 特别说明：
 

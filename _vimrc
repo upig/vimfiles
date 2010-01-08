@@ -144,19 +144,20 @@ map <leader>b :FuzzyFinderBuffer<CR>
 
 
 nnoremap <silent> <F3> :Rgrep<CR> 
-let Grep_Default_Filelist = '*.rb *.yml *.erb *.html *.css *.txt *.js' 
+let Grep_Default_Filelist = '*.rb *.yml *.erb *.html *.css *.txt *.js *' 
 let Grep_Skip_Dirs = '.svn .git' 
 :let Grep_Skip_Files = '*.bak *~ *.swp'
 
-let path_gunwin32 = 'C:\GnuWin32\bin\'
+"let path_gunwin32 = 'C:\GnuWin32\bin\'
 
-let Grep_Path = path_gunwin32.'grep.exe ' 
-let Fgrep_Path = path_gunwin32.'fgrep.exe ' 
-let Egrep_Path = path_gunwin32.'egrep.exe ' 
-let Agrep_Path = path_gunwin32.'agrep.exe ' 
-let Grep_Find_Path = path_gunwin32.'find.exe ' 
-let Grep_Xargs_Path = path_gunwin32.'xargs.exe ' 
+"let Grep_Path = path_gunwin32.'grep.exe ' 
+"let Fgrep_Path = path_gunwin32.'fgrep.exe ' 
+"let Egrep_Path = path_gunwin32.'egrep.exe ' 
+"let Agrep_Path = path_gunwin32.'agrep.exe ' 
+"let Grep_Find_Path = path_gunwin32.'find.exe ' 
+"let Grep_Xargs_Path = path_gunwin32.'xargs.exe ' 
 
+let $PATH=$PATH.'C:/Program Files/Mozilla Firefox/;C:\Documents and Settings\magic\vimfiles\;C:\GnuWin32\bin\'
 
 autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
 
@@ -169,7 +170,7 @@ endfunction
 " Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
 function! OpenRIDoc(keyword)
     let url=a:keyword
-    call system('"C:\Documents and Settings\magic\vimfiles\rubyhelp.exe" '.url)
+    call system('"rubyhelp.exe" '.url)
 endfunction      
 
 " Open the Rails ApiDock page for the word under cursos, in a new Firefox tab
