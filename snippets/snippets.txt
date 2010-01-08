@@ -1,0 +1,518 @@
++---css
+|       #
+|       cl
+|       tag
+|       
++---eruby
+|       if
+|       ife
+|       unless
+|       unlesse
+|       
++---eruby-rails
+|       conf
+|       cs
+|       ct
+|       end
+|       ff
+|       ffcb
+|       ffe
+|       ffff
+|       ffhf
+|       ffl
+|       ffpf
+|       ffrb
+|       ffs
+|       ffta
+|       fftf
+|       fields
+|       for
+|       ft
+|       i18
+|       it
+|       jit
+|       jsit
+|       lia
+|       liai
+|       lic
+|       lica
+|       licai
+|       lim
+|       linp
+|       linpp
+|       lip
+|       lipp
+|       lt
+|       ofcfs
+|       rf
+|       rp
+|       rt
+|       slt
+|       sslt
+|       st
+|       
++---html
+|   |   base
+|   |   body
+|   |   doctype
+|   |   form
+|   |   h1
+|   |   head
+|   |   href
+|   |   ifie
+|   |   img
+|   |   input
+|   |   inputl
+|   |   label
+|   |   link
+|   |   mailto
+|   |   meta
+|   |   option
+|   |   select
+|   |   style
+|   |   t
+|   |   textarea
+|   |   
+|   +---script
+|   |       include_script
+|   |       inline_script
+|   |       
+|   +---skel
+|   |       basic
+|   |       basic_with_meta
+|   |       
+|   \---table
+|           basic
+|           hardcore
+|           
++---javascript
+|       anon
+|       for
+|       fun
+|       if
+|       ife
+|       met
+|       proto
+|       timeout
+|       
++---javascript-jquery
+|       add
+|       addClass
+|       after
+|       ajax
+|       ajaxerror
+|       ajaxget
+|       ajaxgetif
+|       ajaxpost
+|       ajaxsend
+|       ajaxsetup
+|       ajaxstart
+|       ajaxstop
+|       ajaxsuccess
+|       animate
+|       append
+|       appendTo
+|       attr
+|       attrm
+|       before
+|       bind
+|       blur
+|       change
+|       children
+|       click
+|       clone
+|       contains
+|       css
+|       cssm
+|       dblclick
+|       each
+|       el
+|       eltrim
+|       end
+|       error
+|       fadein
+|       fadeinc
+|       fadeout
+|       fadeoutc
+|       fadeto
+|       fadetoc
+|       filter
+|       find
+|       focus
+|       get
+|       getjson
+|       getscript
+|       height
+|       hide
+|       hidec
+|       hover
+|       html
+|       insertAfter
+|       insertBefore
+|       is
+|       load
+|       loadf
+|       loadif
+|       mdown
+|       mmove
+|       mout
+|       mover
+|       mup
+|       next
+|       not
+|       one
+|       parent
+|       parents
+|       prepend
+|       prependto
+|       prev
+|       ready
+|       remove
+|       removeattr
+|       removeclass
+|       reset
+|       resize
+|       scroll
+|       sdown
+|       sdownc
+|       sdupc
+|       select
+|       show
+|       showc
+|       sib
+|       size
+|       stoggle
+|       submit
+|       sup
+|       text
+|       this
+|       tog
+|       togclass
+|       togsh
+|       trig
+|       unbind
+|       val
+|       width
+|       wrap
+|       
++---ruby
+|       am
+|       anr
+|       as
+|       ase
+|       asid
+|       asio
+|       asko
+|       asm
+|       asn
+|       asne
+|       asnm
+|       asnn
+|       asns
+|       asnt
+|       aso
+|       asr
+|       asrt
+|       ass
+|       ast
+|       bm
+|       case
+|       class
+|       classe
+|       def
+|       defi
+|       defmm
+|       defs
+|       deft
+|       detect
+|       detecto
+|       dglob
+|       do
+|       dop
+|       ea
+|       each
+|       eacho
+|       each_with_index
+|       each_with_indexo
+|       eado
+|       eawi
+|       eawido
+|       elsif
+|       fileeach
+|       fopen
+|       fread
+|       http_get
+|       http_post
+|       if
+|       ife
+|       inj
+|       injdo
+|       inject
+|       injecto
+|       ip
+|       map
+|       mapdo
+|       mapo
+|       Md
+|       Ml
+|       mod
+|       module
+|       nam
+|       ope
+|       pathhere
+|       Pn
+|       r
+|       reject
+|       rejecto
+|       rep
+|       rw
+|       select
+|       selecto
+|       sinc
+|       sort
+|       sorto
+|       tas
+|       task
+|       tc
+|       unless
+|       unlesse
+|       w
+|       while
+|       xmlr
+|       xpa
+|       Yd
+|       Yl
+|       zip
+|       
++---ruby-rails
+|       art
+|       artnp
+|       artnpp
+|       artp
+|       artpp
+|       asd
+|       asnd
+|       asre
+|       asrj
+|       ass
+|       bf
+|       bt
+|       crw
+|       defcreate
+|       defdestroy
+|       defedit
+|       defindex
+|       defnew
+|       defshow
+|       defupdate
+|       fina
+|       finf
+|       fini
+|       finl
+|       flash
+|       habtm
+|       hm
+|       hmd
+|       hmt
+|       ho
+|       i18
+|       ist
+|       log
+|       logd
+|       loge
+|       logf
+|       logi
+|       logw
+|       mac
+|       mapc
+|       mapca
+|       mapr
+|       maprs
+|       mapwo
+|       mbs
+|       mcc
+|       mccc
+|       mcht
+|       mcol
+|       mct
+|       migration
+|       mp
+|       mrc
+|       mrmc
+|       mrnc
+|       mrw
+|       nc
+|       ncl
+|       pa
+|       ra
+|       ral
+|       rest
+|       rf
+|       rfu
+|       ri
+|       ril
+|       rit
+|       rjson
+|       rl
+|       rn
+|       rns
+|       rp
+|       rpc
+|       rpl
+|       rpo
+|       rps
+|       rt
+|       rtl
+|       rtlt
+|       rts
+|       ru
+|       rxml
+|       sha1
+|       sweeper
+|       tcb
+|       tcbi
+|       tcd
+|       tcda
+|       tcdt
+|       tcf
+|       tch
+|       tci
+|       tcl
+|       tcr
+|       tcs
+|       tct
+|       tcti
+|       tcts
+|       tctss
+|       trc
+|       tre
+|       tref
+|       va
+|       vao
+|       vc
+|       ve
+|       vf
+|       vi
+|       vl
+|       vn
+|       vpo
+|       vu
+|       wants
+|       xdelete
+|       xget
+|       xpost
+|       xput
+|       
++---ruby-rails-rjs
+|       hide
+|       ins
+|       rep
+|       reph
+|       show
+|       tog
+|       vis
+|       
++---ruby-rspec
+|       aft
+|       annot
+|       anr
+|       anra
+|       anrb
+|       ant
+|       any
+|       atl
+|       atm
+|       bef
+|       conn
+|       des
+|       desc
+|       desrc
+|       dest
+|       dests
+|       ex
+|       it
+|       its
+|       mat
+|       mm
+|       moc
+|       mocw
+|       on
+|       resh
+|       sh
+|       shb
+|       shbc
+|       shbio
+|       shbko
+|       shbr
+|       shbs
+|       shc
+|       shdm
+|       she
+|       sheq
+|       shh
+|       shhal
+|       shham
+|       shhr
+|       shn
+|       shnb
+|       shnbc
+|       shnbio
+|       shnbko
+|       shnbr
+|       shnbs
+|       shnc
+|       shne
+|       shneq
+|       shnm
+|       shnp
+|       shnr
+|       shnre
+|       shnredt
+|       shnrt
+|       shns
+|       shnt
+|       shp
+|       shr
+|       shre
+|       shredt
+|       shrt
+|       shs
+|       sht
+|       shtemp
+|       tw
+|       wia
+|       
++---ruby-shoulda
+|       context
+|       samao
+|       savf
+|       sbt
+|       selal
+|       seli
+|       selir
+|       setup
+|       sevir
+|       shabtm
+|       shcm
+|       shdc
+|       shi
+|       shim
+|       shm
+|       shns
+|       sho
+|       shroa
+|       snamao
+|       snavf
+|       svao
+|       svno
+|       svpo
+|       svuo
+|       
+\---_
+    |   lorem
+    |   modeline
+    |   
+    \---date
+            date + time
+            date
+            

@@ -156,11 +156,6 @@ let g:fuzzy_ignore = "gems/*, log/*"
 map <leader>b :FuzzyFinderBuffer<CR>
 
 
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
 nnoremap <silent> <F3> :Rgrep<CR> 
 let Grep_Default_Filelist = '*.rb *.yml *.erb *.html *.css *.txt *.js' 
 let Grep_Skip_Dirs = '.svn' 
@@ -172,12 +167,31 @@ let Agrep_Path = 'C:\GnuWin32\bin\agrep.exe '
 let Grep_Find_Path = 'C:\GnuWin32\bin\find.exe ' 
 let Grep_Xargs_Path = 'C:\GnuWin32\bin\xargs.exe ' 
 
+
+autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
+function! s:XwSetRubyConfig()
+
+  noremap <F5> :!ruby % <CR>
+  vnoremap <F5> <C-C>:!ruby % <CR>
+  inoremap <F5> <C-O>:!ruby % <CR>
+
+  noremap <C-F5> :w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
+  vnoremap <C-F5> <C-C>:w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
+  inoremap <C-F5> <C-O>:w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
+
+  set omnifunc=rubycomplete#Complete
+  let g:rubycomplete_buffer_loading = 1
+  let g:rubycomplete_rails = 1
+  let g:rubycomplete_classes_in_global = 1
+endfunction
+
 map <F4> :cn<CR>
-autocmd BufRead,BufNewFile *.rb map <F5> :% w !ruby<CR>
-autocmd BufRead,BufNewFile *.rb map <C-F5> :w<cr>:setlocal makeprg=ruby\ -c\ %:r.rb\ %<cr>:make<cr> :copen<cr><cr> 
+
+
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 noremap <C-L> <C-W>l
+noremap <C-H> <C-W>h
 
 map <C-F8> :TlistToggle<CR>  
 let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的
@@ -192,3 +206,6 @@ let Tlist_Compact_Format = 1
 " 把 F8 映射到 启动NERDTree插件  
 map <F8> :NERDTreeToggle<CR>  
 "let NERDTreeMouseMode=3
+
+autocmd BufRead,BufNewFile *.rb source  ~/vimfiles/ftplugin/ri.vim
+
