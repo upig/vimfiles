@@ -468,14 +468,6 @@ let Grep_Default_Filelist = '*.rb *.yml *.erb *.html *.css *.txt *.js *'
 let Grep_Skip_Dirs = '.svn .git' 
 :let Grep_Skip_Files = '*.bak *~ *.swp'
 
-"let path_gunwin32 = 'C:\GnuWin32\bin\'
-
-"let Grep_Path = path_gunwin32.'grep.exe ' 
-"let Fgrep_Path = path_gunwin32.'fgrep.exe ' 
-"let Egrep_Path = path_gunwin32.'egrep.exe ' 
-"let Agrep_Path = path_gunwin32.'agrep.exe ' 
-"let Grep_Find_Path = path_gunwin32.'find.exe ' 
-"let Grep_Xargs_Path = path_gunwin32.'xargs.exe ' 
 
 
 autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
@@ -499,23 +491,30 @@ function! OpenRailsDoc(keyword)
 endfunction
 
 function! s:XwSetRubyConfig()
-    noremap <F5> :!ruby % <CR>
-    vnoremap <F5> <C-C>:!ruby % <CR>
-    inoremap <F5> <C-O>:!ruby % <CR>
-    noremap <C-F5> :w<cr>:setlocal makeprg=ruby\ -c\ %:r.rb\ %<cr>:make<cr> :copen<cr> <C-W>10_
-    vnoremap <C-F5> <C-C>:w<cr>:setlocal makeprg=ruby\ -c\ %:r.rb\ %<cr>:make<cr> :copen<cr> <C-W>10_
-    inoremap <C-F5> <C-O>:w<cr>:setlocal makeprg=ruby\ -c\ %:r.rb\ %<cr>:make<cr> :copen<cr> <C-W>10_
+
+    noremap <F5> :w<cr>:!ruby % <CR><CR>
+    vnoremap <F5> <C-C>:w<cr>:!ruby % <CR><CR>
+    inoremap <F5> <C-[>:w<cr>:!ruby % <CR><CR>
+
+    set makeprg=ruby\ -c\ %:r.rb\ %
+    noremap <C-F5> :w<cr>:make<cr>:copen<cr><c-w>w
+    vnoremap <C-F5> <C-C>:w<cr>:make<cr> :copen<cr> <c-w>w  
+    inoremap <C-F5> <C-[>:w<cr>:make<cr>:copen<cr> <c-w>w 
 
     set omnifunc=rubycomplete#Complete
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_rails = 1
     let g:rubycomplete_classes_in_global = 1
-    source  ~/vimfiles/ftplugin/ri.vim
+    "source  ~/vimfiles/ftplugin/ri.vim
     let g:browser = '"firefox.exe"  -new-tab '  
 
     noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
     noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
     noremap <F1> :call OpenRIDoc(expand('<cword>'))<CR>
+    vnoremap <F1> <C-C>:call OpenRIDoc(expand('<cword>'))<CR>
+    inoremap <F1> <C-O>:call OpenRIDoc(expand('<cword>'))<CR>
+    command! -nargs=1 Ri :call OpenRIDoc('<args>')
+
 endfunction
 
 map <F4> :cn<CR>
