@@ -2,6 +2,7 @@ h1. GVIM 7.2 配置文件在Windows XP下的使用方法
 
 = 将本目录整个拷入C:\Documents and Settings\magic\之类的目录中去，
 = 然后将本目录中的_vimrc文件单独拷贝到C:\Documents and Settings\magic\目录中
+= 安装本目录中的MONACO.TTF字体
 = 将Globals.rb拷到C:\ruby\lib\ruby\gems\1.8\gems\fxri-0.3.6\lib\复盖，改善fxri字体与大小
 = 确保已经安装firefox，以及本目录中的find与grep工具
 = 在_vimrc中修改改$PATH,确保其中包含有grep与find工具目录、firefox目录，以及本vimfiles目录等
