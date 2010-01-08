@@ -10,12 +10,12 @@ source ~/vimfiles/vimrc
 
 " bail out if this isn't wanted (mrsvim.vim uses this).
 if exists("g:skip_loading_mswin") && g:skip_loading_mswin
-  finish
+    finish
 endif
 
 " set the 'cpoptions' to its Vim default
 if 1	" only do this when compiled with expression evaluation
-  let s:save_cpo = &cpoptions
+    let s:save_cpo = &cpoptions
 endif
 set cpo&vim
 
@@ -65,7 +65,7 @@ inoremap <C-S>		<C-O>:update<CR>
 " For CTRL-V to work autoselect must be off.
 " On Unix we have two selections, autoselect can be used.
 if !has("unix")
-  set guioptions-=a
+    set guioptions-=a
 endif
 
 " CTRL-Z is Undo; not in cmdline though
@@ -85,9 +85,9 @@ inoremap <A-right> <C-O><C-I>
 
 " Alt-Space is System menu
 if has("gui")
-  noremap <M-Space> :simalt ~<CR>
-  inoremap <M-Space> <C-O>:simalt ~<CR>
-  cnoremap <M-Space> <C-C>:simalt ~<CR>
+    noremap <M-Space> :simalt ~<CR>
+    inoremap <M-Space> <C-O>:simalt ~<CR>
+    cnoremap <M-Space> <C-C>:simalt ~<CR>
 endif
 
 " CTRL-A is Select all
@@ -117,8 +117,8 @@ onoremap <C-F4> <C-C><C-W>c
 " restore 'cpoptions'
 set cpo&
 if 1
-  let &cpoptions = s:save_cpo
-  unlet s:save_cpo
+    let &cpoptions = s:save_cpo
+    unlet s:save_cpo
 endi
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -133,20 +133,7 @@ set fenc=utf-8
 " 设置文件编码检测类型及支持格式  
 set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936  
 color blackboard
-let g:browser = '"C:/Program Files/Mozilla Firefox/firefox.exe"  -new-tab '  
-" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
-function! OpenRubyDoc(keyword)
-  let url = 'http://apidock.com/ruby/'.a:keyword
-  call system(g:browser.url)
-endfunction           
-noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
 
-" Open the Rails ApiDock page for the word under cursos, in a new Firefox tab
-function! OpenRailsDoc(keyword)
-  let url = 'http://apidock.com/rails/'.a:keyword
-  call system(g:browser.url)
-endfunction
-noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 
 
 
@@ -158,31 +145,58 @@ map <leader>b :FuzzyFinderBuffer<CR>
 
 nnoremap <silent> <F3> :Rgrep<CR> 
 let Grep_Default_Filelist = '*.rb *.yml *.erb *.html *.css *.txt *.js' 
-let Grep_Skip_Dirs = '.svn' 
+let Grep_Skip_Dirs = '.svn .git' 
+:let Grep_Skip_Files = '*.bak *~ *.swp'
 
-let Grep_Path = 'C:\GnuWin32\bin\grep.exe ' 
-let Fgrep_Path = 'C:\GnuWin32\bin\fgrep.exe ' 
-let Egrep_Path = 'C:\GnuWin32\bin\egrep.exe ' 
-let Agrep_Path = 'C:\GnuWin32\bin\agrep.exe ' 
-let Grep_Find_Path = 'C:\GnuWin32\bin\find.exe ' 
-let Grep_Xargs_Path = 'C:\GnuWin32\bin\xargs.exe ' 
+let path_gunwin32 = 'C:\GnuWin32\bin\'
+
+let Grep_Path = path_gunwin32.'grep.exe ' 
+let Fgrep_Path = path_gunwin32.'fgrep.exe ' 
+let Egrep_Path = path_gunwin32.'egrep.exe ' 
+let Agrep_Path = path_gunwin32.'agrep.exe ' 
+let Grep_Find_Path = path_gunwin32.'find.exe ' 
+let Grep_Xargs_Path = path_gunwin32.'xargs.exe ' 
 
 
 autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
+
+" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
+function! OpenRubyDoc(keyword)
+    let url = 'http://apidock.com/ruby/'.a:keyword
+    call system(g:browser.url)
+endfunction  
+
+" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
+function! OpenRIDoc(keyword)
+    let url=a:keyword
+    call system('"C:\Documents and Settings\magic\vimfiles\rubyhelp.exe" '.url)
+endfunction      
+
+" Open the Rails ApiDock page for the word under cursos, in a new Firefox tab
+function! OpenRailsDoc(keyword)
+    let url = 'http://apidock.com/rails/'.a:keyword
+    call system(g:browser.url)
+endfunction
+
 function! s:XwSetRubyConfig()
+    noremap <F5> :!ruby % <CR>
+    vnoremap <F5> <C-C>:!ruby % <CR>
+    inoremap <F5> <C-O>:!ruby % <CR>
 
-  noremap <F5> :!ruby % <CR>
-  vnoremap <F5> <C-C>:!ruby % <CR>
-  inoremap <F5> <C-O>:!ruby % <CR>
+    noremap <C-F5> :w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
+    vnoremap <C-F5> <C-C>:w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
+    inoremap <C-F5> <C-O>:w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
 
-  noremap <C-F5> :w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
-  vnoremap <C-F5> <C-C>:w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
-  inoremap <C-F5> <C-O>:w<cr>:setlocal makeprg=ruby -c %:r.rb %<cr>:make<cr> :copen<cr> <CR>
+    set omnifunc=rubycomplete#Complete
+    let g:rubycomplete_buffer_loading = 1
+    let g:rubycomplete_rails = 1
+    let g:rubycomplete_classes_in_global = 1
+    source  ~/vimfiles/ftplugin/ri.vim
+    let g:browser = '"C:/Program Files/Mozilla Firefox/firefox.exe"  -new-tab '  
 
-  set omnifunc=rubycomplete#Complete
-  let g:rubycomplete_buffer_loading = 1
-  let g:rubycomplete_rails = 1
-  let g:rubycomplete_classes_in_global = 1
+    noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
+    noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
+    noremap RI :call OpenRIDoc(expand('<cword>'))<CR>
 endfunction
 
 map <F4> :cn<CR>
@@ -207,5 +221,4 @@ let Tlist_Compact_Format = 1
 map <F8> :NERDTreeToggle<CR>  
 "let NERDTreeMouseMode=3
 
-autocmd BufRead,BufNewFile *.rb source  ~/vimfiles/ftplugin/ri.vim
 
