@@ -240,6 +240,7 @@ inoremap <C-L> <C-O>:nohls<CR>
 
 "map to bufexplorer
 nnoremap <C-E> :BufExplorer<cr>
+inoremap <C-E> <C-O>:BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
 nnoremap <c-T> :FuzzyFinderTextMate<CR>
@@ -308,9 +309,6 @@ function! s:HighlightLongLines(width)
     endif
 endfunction
 
-
-
-let $PATH='C:/Program Files/Mozilla Firefox/;C:\Documents and Settings\magic\vimfiles\;C:\GnuWin32\bin\;'.$PATH
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "source $VIMRUNTIME/mswin.vim
