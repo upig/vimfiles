@@ -488,11 +488,45 @@ function! OpenRailsDoc(keyword)
     call system(g:browser.url)
 endfunction
 
+
+" Open the Rails ApiDock page for the word under cursos, in a new Firefox tab
+function! RunRuby()
+    let cmd_output = system('ruby '.expand("%"))
+    botright copen
+    silent echon cmd_output
+
+    let tmpfile = tempname()
+
+    let old_verbose = &verbose
+    set verbose&vim
+
+    exe "redir! > " . tmpfile
+    silent echon cmd_output
+    redir END
+
+    let &verbose = old_verbose
+
+    let old_efm = &efm
+    set efm=%f:%\\s%#%l:%m
+ 
+    if exists(":cgetfile")
+        execute "silent! cgetfile " . tmpfile
+    else
+        execute "silent! cfile " . tmpfile
+    endif
+   let &efm = old_efm
+
+    " Open the quickfix window below the current window
+    botright copen
+
+    call delete(tmpfile)    
+endfunction
+
 function! s:XwSetRubyConfig()
 
-    noremap <F5> :w<cr>:!ruby % <CR><CR>
-    vnoremap <F5> <C-C>:w<cr>:!ruby % <CR><CR>
-    inoremap <F5> <C-[>:w<cr>:!ruby % <CR><CR>
+    noremap <F5> :w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
+    vnoremap <F5> <C-C>:w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
+    inoremap <F5> <C-[>:w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
 
     set makeprg=ruby\ -c\ %:r.rb\ %
     noremap <C-F5> :w<cr>:make<cr>:copen<cr><c-w>w
