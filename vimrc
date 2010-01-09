@@ -582,3 +582,4 @@ map <F8> :NERDTreeToggle<CR>
 "let NERDTreeMouseMode=3
 
 
+
