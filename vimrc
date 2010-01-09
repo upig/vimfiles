@@ -461,7 +461,9 @@ let g:fuzzy_ignore = "gems/*, log/*"
 map <leader>b :FuzzyFinderBuffer<CR>
 
 
-nnoremap <silent> <F3> :Rgrep<CR> 
+" nnoremap <silent> <F3> :Rgrep<CR> 
+vmap <F3> :y
+"<CR>:%s/<C-R>"/Vim/
 let Grep_Default_Filelist = '*.rb *.yml *.erb *.html *.css *.txt *.js *' 
 let Grep_Skip_Dirs = '.svn .git' 
 :let Grep_Skip_Files = '*.bak *~ *.swp'
@@ -530,8 +532,12 @@ function! s:XwSetRubyConfig()
     vnoremap <F5> <C-C>:w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
     inoremap <F5> <C-[>:w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
 
-    map <F10> : w !ruby<CR>
+    map <C-F10> : w !ruby<CR>
     
+    noremap <F10> V : !ruby<CR>
+    vnoremap <F10> <C-C>V : !ruby<CR>
+    inoremap <F10> <C-[>V : !ruby<CR>
+
     set makeprg=ruby\ -c\ %
     noremap <C-F5> :w<cr>:make<cr>:copen<cr><c-w>w
     vnoremap <C-F5> <C-C>:w<cr>:make<cr> :copen<cr> <c-w>w  
