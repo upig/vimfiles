@@ -462,7 +462,7 @@ map <leader>b :FuzzyFinderBuffer<CR>
 
 
 " nnoremap <silent> <F3> :Rgrep<CR> 
-vmap <F3> :y
+vmap <F3> "zy/\V<C-R>=escape(@z,'\/')<CR><CR>:%s//<C-R>=escape(@+,'\/')<CR>/gc<left><left><left>
 "<CR>:%s/<C-R>"/Vim/
 let Grep_Default_Filelist = '*.rb *.yml *.erb *.html *.css *.txt *.js *' 
 let Grep_Skip_Dirs = '.svn .git' 
