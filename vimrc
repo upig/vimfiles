@@ -561,6 +561,10 @@ endfunction
 
 map <F4> :cn<CR>
 
+function! CreateTags()
+    let cmd_output = system('ctags -R')
+endfunction
+command! -nargs=0 Ctags :call CreateTags()
 
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
