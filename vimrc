@@ -442,8 +442,8 @@ set enc=utf-8
 set fileencodings=utf-8,chinese,latin-1
 
 " 设置消息提示为中文
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
+"source $VIMRUNTIME/delmenu.vim
+"source $VIMRUNTIME/menu.vim
 language message zh_CN.utf-8
 
 " 设置文件编码  
