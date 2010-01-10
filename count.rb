@@ -12,5 +12,5 @@ end
 
 
 fileName =IO.read(ARGV[0]).chomp
-puts IO.read(fileName.to_gbk).jlength-1
+print IO.read(fileName.to_gbk).jlength-1
 

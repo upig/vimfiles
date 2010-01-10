@@ -370,7 +370,7 @@ noremap <C-Q>		<C-V>
 " Use CTRL-S for saving, also in Insert mode
 noremap <C-S>		:update<CR>
 vnoremap <C-S>		<C-C>:update<CR>
-inoremap <C-S>		<C-O>:update<CR>
+inoremap <C-S>		<C-[>:update<CR>a
 
 " For CTRL-V to work autoselect must be off.
 " On Unix we have two selections, autoselect can be used.
@@ -437,7 +437,7 @@ autocmd GUIEnter * simalt ~x
 set guifont=Monaco:h11
 set gfw=Fixedsys:h11
 
-" 设置编码  
+" 设置编码 
 set enc=utf-8 
 set fileencodings=utf-8,chinese,latin-1
 
@@ -495,6 +495,7 @@ function! RunRuby()
     call ShowQuickFix(cmd_output)
 endfunction
 
+
 function! ShowQuickFix(cmd_output)
 
     let tmpfile = tempname()
@@ -524,7 +525,23 @@ function! ShowQuickFix(cmd_output)
     call delete(tmpfile)    
 endfunction
 
+function! CountFileWords()
+    
+    let tmpfile = tempname()
+    "tempname()
 
+    exe "redir! > " . tmpfile
+    silent echon expand("%:p")
+    redir END
+
+    let cmd_output= system('count.rb '.tmpfile)
+  "  exe "redir! > " . 'E:\test.txt'
+    "echo "[Search results for pattern: ]\n"
+    echomsg "总字数：".cmd_output
+ "   redir END
+
+   call delete(tmpfile)    
+endfunction
 
 function! s:XwSetRubyConfig()
 
@@ -558,6 +575,8 @@ function! s:XwSetRubyConfig()
     command! -nargs=1 Ri :call OpenRIDoc('<args>')
 
 endfunction
+
+command! -nargs=0 Count :call CountFileWords()
 
 map <F4> :cn<CR>
 
