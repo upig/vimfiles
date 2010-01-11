@@ -457,7 +457,7 @@ color blackboard
 
 let g:fuzzy_ceiling=20000
 let g:fuzzy_matching_limit=25
-let g:fuzzy_ignore = "gems/*, log/*"
+let g:fuzzy_ignore = "gems/*;log/*;vendor/*"
 map <leader>b :FuzzyFinderBuffer<CR>
 
 
