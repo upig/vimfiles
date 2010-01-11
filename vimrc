@@ -442,8 +442,8 @@ set enc=utf-8
 set fileencodings=utf-8,chinese,latin-1
 
 " 设置消息提示为中文
-"source $VIMRUNTIME/delmenu.vim
-"source $VIMRUNTIME/menu.vim
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 language message zh_CN.utf-8
 
 " 设置文件编码  
@@ -549,11 +549,11 @@ function! s:XwSetRubyConfig()
     vnoremap <F5> <C-C>:w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
     inoremap <F5> <C-[>:w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
 
-    map <C-F10> : w !ruby<CR>
+    "map <C-F10> : w !ruby<CR>
     
-    noremap <F10> V : !ruby<CR>
-    vnoremap <F10> <C-C>V : !ruby<CR>
-    inoremap <F10> <C-[>V : !ruby<CR>
+    noremap <F10> : w !ruby<CR>
+    vnoremap <F10> : w !ruby<CR>
+    inoremap <F10> <C-[>V : w !ruby<CR>
 
     set makeprg=ruby\ -c\ %
     noremap <C-F5> :w<cr>:make<cr>:copen<cr><c-w>w
