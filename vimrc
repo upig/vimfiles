@@ -457,7 +457,7 @@ color blackboard
 
 let g:fuzzy_ceiling=20000
 let g:fuzzy_matching_limit=25
-let g:fuzzy_ignore = "gems/*;log/*;vendor/*"
+let g:fuzzy_ignore = "gems/*;log/*;vendor/*;coverage/*;test/coverage/*;"
 map <leader>b :FuzzyFinderBuffer<CR>
 
 
@@ -520,7 +520,7 @@ function! ShowQuickFix(cmd_output)
    let &efm = old_efm
 
     " Open the quickfix window below the current window
-    botright copen
+    bot copen
 
     call delete(tmpfile)    
 endfunction
@@ -556,9 +556,9 @@ function! s:XwSetRubyConfig()
     inoremap <F10> <C-[>V : w !ruby<CR>
 
     set makeprg=ruby\ -c\ %
-    noremap <C-F5> :w<cr>:make<cr>:copen<cr><c-w>w
-    vnoremap <C-F5> <C-C>:w<cr>:make<cr> :copen<cr> <c-w>w  
-    inoremap <C-F5> <C-[>:w<cr>:make<cr>:copen<cr> <c-w>w 
+    noremap <C-F5> :w<cr>:make<cr>:bot copen<cr><c-w>w
+    vnoremap <C-F5> <C-C>:w<cr>:make<cr> :bot copen<cr> <c-w>w  
+    inoremap <C-F5> <C-[>:w<cr>:make<cr>:bot copen<cr> <c-w>w 
 
     set omnifunc=rubycomplete#Complete
     let g:rubycomplete_buffer_loading = 1
@@ -601,8 +601,10 @@ let Tlist_Compact_Format = 1
 
 
 " 把 F8 映射到 启动NERDTree插件  
+let NERDTreeIgnore=['\.vim$', '\~$', '^coverage$', '^tmp$']
 map <F8> :NERDTreeToggle<CR>  
 "let NERDTreeMouseMode=3
 
+noremap <ESC> :cclose<CR><ESC>
 
 
