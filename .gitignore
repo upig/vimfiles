@@ -3,5 +3,5 @@ tags
 *.swp
 .VimballRecord
 /tmp/ruby_debugger_log
-
+rdoc
 /Git-1.6.1-preview20081227.exe

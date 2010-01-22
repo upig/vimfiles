@@ -1136,13 +1136,13 @@ function! s:Rake(bang,lnum,arg)
       exe 'make! '.arg
       call s:pop_command()
       if !a:bang
-        cwindow
+        bot cwindow
       endif
     elseif arg =~# '^\%(stats\|routes\|secret\|time:zones\|db:\%(charset\|collation\|fixtures:identify\>.*\|version\)\)\%([: ]\|$\)'
       let &l:errorformat = '%D(in\ %f),%+G%.%#'
       exe 'make! '.arg
       if !a:bang
-        copen
+        bot copen
       endif
     elseif arg =~ '^preview\>'
       exe (lnum == 0 ? '' : lnum).'R'.s:gsub(arg,':','/')
@@ -1172,7 +1172,7 @@ function! s:Rake(bang,lnum,arg)
     else
       exe 'make! '.arg
       if !a:bang
-        cwindow
+        bot copen "cwindow
       endif
     endif
   finally

@@ -44,9 +44,9 @@ set statusline+=%{StatuslineTrailingSpaceWarning()}
 
 set statusline+=%{StatuslineLongLineWarning()}
 
-set statusline+=%#warningmsg#
+"set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%*
 
 "display a warning if &paste is set
 set statusline+=%#error#
@@ -442,8 +442,8 @@ set enc=utf-8
 set fileencodings=utf-8,chinese,latin-1
 
 " 设置消息提示为中文
-"source $VIMRUNTIME/delmenu.vim
-"source $VIMRUNTIME/menu.vim
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 language message zh_CN.utf-8
 
 " 设置文件编码  
@@ -457,7 +457,7 @@ color blackboard
 
 let g:fuzzy_ceiling=20000
 let g:fuzzy_matching_limit=25
-let g:fuzzy_ignore = "gems/*, log/*"
+let g:fuzzy_ignore = "gems/*;log/*;vendor/*;coverage/*;test/coverage/*;"
 map <leader>b :FuzzyFinderBuffer<CR>
 
 
@@ -520,7 +520,7 @@ function! ShowQuickFix(cmd_output)
    let &efm = old_efm
 
     " Open the quickfix window below the current window
-    botright copen
+    bot copen
 
     call delete(tmpfile)    
 endfunction
@@ -549,16 +549,16 @@ function! s:XwSetRubyConfig()
     vnoremap <F5> <C-C>:w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
     inoremap <F5> <C-[>:w<cr>:call RunRuby()<CR><c-w>w:cc<CR>
 
-    map <C-F10> : w !ruby<CR>
+    "map <C-F10> : w !ruby<CR>
     
-    noremap <F10> V : !ruby<CR>
-    vnoremap <F10> <C-C>V : !ruby<CR>
-    inoremap <F10> <C-[>V : !ruby<CR>
+    noremap <F10> : w !ruby<CR>
+    vnoremap <F10> : w !ruby<CR>
+    inoremap <F10> <C-[>V : w !ruby<CR>
 
     set makeprg=ruby\ -c\ %
-    noremap <C-F5> :w<cr>:make<cr>:copen<cr><c-w>w
-    vnoremap <C-F5> <C-C>:w<cr>:make<cr> :copen<cr> <c-w>w  
-    inoremap <C-F5> <C-[>:w<cr>:make<cr>:copen<cr> <c-w>w 
+    noremap <C-F5> :w<cr>:make<cr>:bot copen<cr><c-w>w
+    vnoremap <C-F5> <C-C>:w<cr>:make<cr> :bot copen<cr> <c-w>w  
+    inoremap <C-F5> <C-[>:w<cr>:make<cr>:bot copen<cr> <c-w>w 
 
     set omnifunc=rubycomplete#Complete
     let g:rubycomplete_buffer_loading = 1
@@ -580,10 +580,10 @@ command! -nargs=0 Count :call CountFileWords()
 
 map <F4> :cn<CR>
 
-function! CreateTags()
-    let cmd_output = system('ctags -R')
-endfunction
-command! -nargs=0 Ctags :call CreateTags()
+"function! CreateTags()
+    "let cmd_output = system('tags.bat')
+"endfunction
+"command! -nargs=0 Ctags :call CreateTags()
 
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
@@ -601,8 +601,14 @@ let Tlist_Compact_Format = 1
 
 
 " 把 F8 映射到 启动NERDTree插件  
+let NERDTreeIgnore=['\.vim$', '\~$', '^coverage$', '^tmp$']
 map <F8> :NERDTreeToggle<CR>  
 "let NERDTreeMouseMode=3
+
+noremap <ESC> :cclose<CR><ESC>
+
+set clipboard+=unnamed
+
 
 
 
