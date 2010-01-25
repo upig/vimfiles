@@ -606,6 +606,7 @@ map <F8> :NERDTreeToggle<CR>
 "let NERDTreeMouseMode=3
 
 noremap <ESC> :cclose<CR><ESC>
+smap <ESC> <LEFT><ESC>
 
 set clipboard+=unnamed
 
