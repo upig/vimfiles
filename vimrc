@@ -418,10 +418,9 @@ inoremap <C-Tab>    <C-O>:e #<CR>
 "vnoremap <C-F4>    <C-C>:bd<CR>
 "inoremap <C-F4>    <C-O>:bd<CR>
 " CTRL-F4 is Close window
-noremap <C-F4> <C-W>c
-inoremap <C-F4> <C-O><C-W>c
-cnoremap <C-F4> <C-C><C-W>c
-onoremap <C-F4> <C-C><C-W>c
+map <C-F4> :BufExplorer<CR>d<CR><CR>
+imap <C-F4> <C-O>:BufExplorer<CR>d<CR>
+vmap <C-F4> <C-C>:BufExplorer<CR>d<CR>
 
 
 " restore 'cpoptions'
@@ -461,14 +460,13 @@ let g:fuzzy_ignore = "gems/*;log/*;vendor/*;coverage/*;test/coverage/*;"
 map <leader>b :FuzzyFinderBuffer<CR>
 
 
-" nnoremap <silent> <F3> :Rgrep<CR> 
 vmap <F3> "zy/\V<C-R>=escape(@z,'\/')<CR><CR>:%s//<C-R>=escape(@+,'\/')<CR>/gc<left><left><left>
-"<CR>:%s/<C-R>"/Vim/
-let Grep_Default_Filelist = '*.rb *.yml *.erb *.html *.css *.txt *.js *' 
-let Grep_Skip_Dirs = '.svn .git' 
-:let Grep_Skip_Files = '*.bak *~ *.swp'
 
-
+function! RunGrep(keyword)
+    let cmd_output = system('grep.rb '.a:keyword)
+    call ShowQuickFix(cmd_output)
+endfunction
+command! -nargs=1 Grep :call RunGrep('<args>')
 
 autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
 
