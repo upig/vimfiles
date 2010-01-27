@@ -467,7 +467,8 @@ function! RunGrep(keyword)
     call ShowQuickFix(cmd_output)
 endfunction
 command! -nargs=1 Grep :call RunGrep('<args>')
-vnoremap <C-F> :call RunGrep(expand('<cword>'))<CR>
+vmap <C-F> "+y:Grep <C-V><C-left> 
+":call RunGrep(@z))<CR>
 
 autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
 
