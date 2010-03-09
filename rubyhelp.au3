@@ -1,3 +1,6 @@
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Compression=4
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #cs ----------------------------------------------------------------------------
 
  AutoIt Version: 3.2.12.1
@@ -20,22 +23,23 @@ EndIf
 ;$keyword="Array"
 ;MsgBox(1,1,"tketk")
 
-$fxTitle="fxri - Instant Ruby Enlightenment"
-$ctrlTitle = "[CLASS:FXWindow; INSTANCE:4]"
+$fxTitle="Authlogic"
 
-if WinExists ($fxTitle)<>True then 
-	ShellExecute("fxri.rbw")
-	MsgBox(1, "Please Wait", "Wait for init for first time", 3)
+
+If NOT WinExists($fxTitle) Then
+	ShellExecute("file:///"&@ScriptDir&"/rdoc/index.html")
+	Sleep(3000)
 EndIf
 
 WinActivate($fxTitle)
 WinWaitActive($fxTitle)
 
-ControlClick($fxTitle, "", $ctrlTitle, "left", 1)
+;ControlClick($fxTitle, "", $ctrlTitle, "left", 1)
 
 ;clear
 Send("^a")
 Send("{DEL}")
 
 Send($keyword)
+Send("{ENTER}")
 
