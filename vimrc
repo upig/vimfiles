@@ -608,7 +608,7 @@ map <F8> :NERDTreeToggle<CR>
 noremap <ESC> :cclose<CR><ESC>
 smap <ESC> <LEFT><ESC>
 
-set clipboard+=unnamed
+" set clipboard+=unnamed
 
 
 
