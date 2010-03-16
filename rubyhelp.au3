@@ -12,11 +12,10 @@
 #ce ----------------------------------------------------------------------------
 
 ; Script Start - Add your code below here
-
 if $CmdLine[0]>0 then 
 $keyword=$CmdLine[1]
 else 
-$keyword=""
+$keyword="rails"
 EndIf
 ;MsgBox(0,"", $keyword)
 ;ConsoleWrite($keyword)
@@ -25,21 +24,25 @@ EndIf
 
 $fxTitle="Authlogic"
 
-
+$firstFlag = 0;
 If NOT WinExists($fxTitle) Then
 	ShellExecute("file:///"&@ScriptDir&"/rdoc/index.html")
-	Sleep(3000)
+	$firstFlag =1
+	Sleep(3500)
 EndIf
 
 WinActivate($fxTitle)
 WinWaitActive($fxTitle)
+Send("^{F1}")
 
-;ControlClick($fxTitle, "", $ctrlTitle, "left", 1)
 
-;clear
+ControlClick("", "", "[CLASS:MozillaWindowClass; INSTANCE:2]", "left", 1, 10, 20)
+
+
 Send("^a")
-Send("{DEL}")
+ClipPut($keyword)
+Send("^v")
 
-Send($keyword)
+Sleep(300)
 Send("{ENTER}")
-
+Send("^{F1}")
