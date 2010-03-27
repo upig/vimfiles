@@ -10,6 +10,7 @@ h1. GVIM 7.2 配置文件在Windows XP下的使用方法
 以上目录都是示例目录，比如其中magic是用户名，请改为你自己的用户名。
 
 下面是GIT, ctags工具以及vim中文帮助文档的下载地址：
+http://wiki.openqa.org/display/WTR/FireWatir+Installation
 http://msysgit.googlecode.com/files/Git-1.6.1-preview20081227.exe
 http://cdnetworks-kr-1.dl.sourceforge.net/project/ctags/ctags/5.8/ctags58.zip
 http://sourceforge.net/projects/vimcdoc/

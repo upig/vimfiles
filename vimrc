@@ -14,7 +14,7 @@ set showmode    "show current mode down the bottom
 set incsearch   "find the next match as we type the search
 set hlsearch    "hilight searches by default
 
-set nowrap      "dont wrap lines
+"set nowrap      "dont wrap lines
 set linebreak   "wrap lines at convenient points
 
 "statusline setup
