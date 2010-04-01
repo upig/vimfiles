@@ -22,7 +22,9 @@ EndIf
 ;$keyword="Array"
 ;MsgBox(1,1,"tketk")
 
-$fxTitle="Authlogic"
+$fxTitle="Ruby v"
+
+Opt("WinTitleMatchMode", 2)     ;1=start, 2=subStr, 3=exact, 4=advanced, -1 to -4=Nocase
 
 $firstFlag = 0;
 If NOT WinExists($fxTitle) Then
