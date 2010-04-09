@@ -612,4 +612,34 @@ smap <ESC> <LEFT><ESC>
 
 
 
+" Section: Menu item setup {{{1
+" ===========================================================================
+"check if the user wants the menu to be displayed
+
+let menuRoot = 'Ruby定制'
+
+function! s:CreateMenuItems(target, desc, root)
+    exec 'nmenu <silent> ' . a:root . '.' . a:desc . ' ' . a:target
+    exec 'vmenu <silent> ' . a:root . '.' . a:desc . ' ' . a:target
+endfunction
+call s:CreateMenuItems('<plug>XWLocalHost',    'LocalHost', menuRoot)
+exec 'menu <silent> '. menuRoot .'.-Sep-    :'
+call s:CreateMenuItems("<plug>XWMenuProgram",    'Programming_Ruby', menuRoot)
+call s:CreateMenuItems("<plug>XWMenuGuides",     'Rails_Guides', menuRoot)
+call s:CreateMenuItems('<plug>XWMenuRailsDoc',    'RDoc', menuRoot)
+call s:CreateMenuItems('<plug>XWMenuGems',    'Ruby_Gems_DIR', menuRoot)
+
+
+
+nnoremap <silent> <plug>XWMenuProgram :call XWMenu(0)<cr>
+nnoremap <silent> <plug>XWMenuGuides :call XWMenu(1)<cr>
+nnoremap <silent> <plug>XWMenuRailsDoc :call XWMenu(2)<cr>
+nnoremap <silent> <plug>XWMenuGems :call XWMenu(3)<cr>
+nnoremap <silent> <plug>XWLocalHost :call XWMenu(4)<cr>
+
+" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
+function! XWMenu(keyword)
+    call system('ruby.exe xwmenu.rb '.a:keyword)
+endfunction      
+
 
