@@ -21,7 +21,7 @@ when '-c'
   $filetypes = '*.{c,cpp,h,hpp,txt,rc,s,asm}'
 else
   $search_pattern = /#{ARGV[0]}/
-  $filetypes='*.{rb,erb,rjs,yml,haml,rake,builder}'
+  $filetypes='*.{rb,erb,rjs,yml,haml,rake,builder,js,css,rhtml}'
 end
 
 
