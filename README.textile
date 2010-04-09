@@ -6,6 +6,7 @@ h1. GVIM 7.2 配置文件在Windows XP下的使用方法
   =============================================
 
   * 如果有必要，去http://railsapi.com/下载帮助文档包解压到rdoc目录中，作为ruby的帮助
+  * 如果有必要，可将rails的guids拷入醒目下的rails_guides下
   * 如果有必要，修改上一级目录中的_vimrc中firefox的目录等
 
 
