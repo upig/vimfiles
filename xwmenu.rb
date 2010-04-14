@@ -1,3 +1,8 @@
+ruby_path =  'c:\ruby'
+dos_env = `set`
+if dos_env=~/PATH=.*?;(.*?ruby.*?)\\bin/i
+  ruby_path = $1
+end
 
 vimfiles_path = File.expand_path(File.dirname(__FILE__))
 command = ARGV[0]
@@ -11,7 +16,7 @@ case command.to_i
   when 2
     shell.Call(0, "open", '"'+vimfiles_path+'\rdoc\index.html"', "", 0, 1)
   when 3
-    shell.Call(0, "open", 'c:\ruby\lib\ruby\gems\1.8\gems', '', 0, 1)
+    shell.Call(0, "open", ruby_path+'\lib\ruby\gems\1.8\gems', '', 0, 1)
   when 4
     shell.Call(0, "open", 'http://127.0.0.1:3000', '', 0, 1)
 end
