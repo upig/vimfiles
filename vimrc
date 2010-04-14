@@ -412,6 +412,8 @@ xnoremap <C-A> <C-C>ggVG
 noremap  <C-Tab>    :e #<CR>
 vnoremap <C-Tab>    <C-C>:e #<CR>
 inoremap <C-Tab>    <C-O>:e #<CR>
+"noremap  <C-Tab>    :BufExplorer<CR>j<cr><cr>o<cr><cr>
+
 
 " CTRL-F4 is Close Buffe"r
 "noremap  <C-F4>    :bd<CR>
@@ -461,14 +463,6 @@ map <leader>b :FuzzyFinderBuffer<CR>
 
 
 vmap <F3> "zy/\V<C-R>=escape(@z,'\/')<CR><CR>:%s//<C-R>=escape(@+,'\/')<CR>/gc<left><left><left>
-
-function! RunGrep(keyword)
-    let cmd_output = system('grep.rb '.a:keyword)
-    call ShowQuickFix(cmd_output)
-endfunction
-command! -nargs=1 Grep :call RunGrep('<args>')
-vmap <C-F> "+y:Grep <C-V><C-left> 
-":call RunGrep(@z))<CR>
 
 autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
 
@@ -630,16 +624,12 @@ call s:CreateMenuItems('<plug>XWMenuRailsDoc',    'RDoc', menuRoot)
 call s:CreateMenuItems('<plug>XWMenuGems',    'Ruby_Gems_DIR', menuRoot)
 
 
-
 nnoremap <silent> <plug>XWMenuProgram :call XWMenu(0)<cr>
 nnoremap <silent> <plug>XWMenuGuides :call XWMenu(1)<cr>
 nnoremap <silent> <plug>XWMenuRailsDoc :call XWMenu(2)<cr>
 nnoremap <silent> <plug>XWMenuGems :call XWMenu(3)<cr>
 nnoremap <silent> <plug>XWLocalHost :call XWMenu(4)<cr>
 
-" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
-function! XWMenu(keyword)
-    call system('ruby.exe xwmenu.rb '.a:keyword)
-endfunction      
-
+command! -nargs=1 Grep :call RunGrep('<args>')
+vmap <C-F> "+y:Grep <C-V><C-left> 
 

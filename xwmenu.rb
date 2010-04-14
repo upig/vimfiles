@@ -1,14 +1,15 @@
 
+vimfiles_path = File.expand_path(File.dirname(__FILE__))
 command = ARGV[0]
 shell = Win32API.new("shell32", "ShellExecute", ['L', 'P', 'P', 'P', 'P', 'L'], 'L')
 puts command
 case command.to_i
   when 0
-    shell.Call(0, "open", "ProgrammingRuby.chm", "", 0, 1)
+    shell.Call(0, "open", '"'+vimfiles_path+'\ProgrammingRuby.chm"', "", 0, 1)
   when 1
-    shell.Call(0, "open", 'rails_guides\index.html', "", 0, 1)
+    shell.Call(0, "open", '"'+vimfiles_path+'\rails_guides\index.html"', "", 0, 1)
   when 2
-    shell.Call(0, "open", 'rdoc\index.html', "", 0, 1)
+    shell.Call(0, "open", '"'+vimfiles_path+'\rdoc\index.html"', "", 0, 1)
   when 3
     shell.Call(0, "open", 'c:\ruby\lib\ruby\gems\1.8\gems', '', 0, 1)
   when 4
