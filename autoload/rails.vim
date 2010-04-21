@@ -584,6 +584,7 @@ function! s:buffer_name() dict abort
   let f = s:gsub(fnamemodify(bufname(self.number()),':p'),'\\ @!','/')
   let f = s:sub(f,'/$','')
   let sep = matchstr(f,'^[^\\/]\{3,\}\zs[\\/]')
+  let f = s:sub(f,'^c:/','C:/')
   if sep != ""
     let f = getcwd().sep.f
   endif
