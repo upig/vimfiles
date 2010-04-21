@@ -21,5 +21,7 @@ case command.to_i
     shell.Call(0, "open", 'http://127.0.0.1:3000', '', 0, 1)
   when 5
     shell.Call(0, "open", '"'+vimfiles_path+'\0_Agile Web Development with Rails 3nd Edition Beta.pdf"', "", 0, 1)
+  when 6
+    shell.Call(0, "open", '"'+vimfiles_path+'\xw_docs_more"', "", 0, 1)
 end
 

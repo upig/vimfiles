@@ -620,9 +620,10 @@ call s:CreateMenuItems('<plug>XWLocalHost',    'LocalHost', menuRoot)
 exec 'menu <silent> '. menuRoot .'.-Sep-    :'
 call s:CreateMenuItems("<plug>XWMenuGuides",     'Rails_Guides', menuRoot)
 call s:CreateMenuItems('<plug>XWMenuAgile',    'Agile_Web_Rails', menuRoot)
-call s:CreateMenuItems('<plug>XWMenuGems',    'Ruby_Gems_DIR', menuRoot)
-call s:CreateMenuItems("<plug>XWMenuProgram",    'Programming_Ruby', menuRoot)
+call s:CreateMenuItems('<plug>XWMenuGems',    'Gems目录', menuRoot)
+call s:CreateMenuItems("<plug>XWMenuProgram",    'Programming_Ruby_chm', menuRoot)
 call s:CreateMenuItems('<plug>XWMenuRailsDoc',    'Help_Html_RDoc', menuRoot)
+call s:CreateMenuItems('<plug>XWMenuDocMore',    '更多文档', menuRoot)
 
 
 nnoremap <silent> <plug>XWMenuProgram :call XWMenu(0)<cr>
@@ -631,6 +632,7 @@ nnoremap <silent> <plug>XWMenuRailsDoc :call XWMenu(2)<cr>
 nnoremap <silent> <plug>XWMenuGems :call XWMenu(3)<cr>
 nnoremap <silent> <plug>XWLocalHost :call XWMenu(4)<cr>
 nnoremap <silent> <plug>XWMenuAgile :call XWMenu(5)<cr>
+nnoremap <silent> <plug>XWMenuDocMore :call XWMenu(6)<cr>
 
 command! -nargs=1 Grep :call RunGrep('<args>')
 vmap <C-F> "+y:Grep <C-V><C-left> 
