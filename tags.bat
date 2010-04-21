@@ -1,2 +1,0 @@
-"C:\Documents and Settings\magic\vimfiles\ctags.exe" -R C:\ruby\lib\ruby\gems\1.8\gems\actionmailer-2.3.5 C:\ruby\lib\ruby\gems\1.8\gems\actionpack-2.3.5 C:\ruby\lib\ruby\gems\1.8\gems\activerecord-2.3.5 C:\ruby\lib\ruby\gems\1.8\gems\activeresource-2.3.5 C:\ruby\lib\ruby\gems\1.8\gems\activesupport-2.3.5 C:\ruby\lib\ruby\gems\1.8\gems\rack-1.0.1 C:\ruby\lib\ruby\gems\1.8\gems\rails-2.3.5 C:\ruby\lib\ruby\gems\1.8\gems\rake-0.8.7  C:\ruby\lib\ruby\gems\1.8\gems\rake-0.8.7 . 
-pause 

@@ -617,6 +617,7 @@ function! s:CreateMenuItems(target, desc, root)
     exec 'vmenu <silent> ' . a:root . '.' . a:desc . ' ' . a:target
 endfunction
 call s:CreateMenuItems('<plug>XWLocalHost',    'LocalHost', menuRoot)
+call s:CreateMenuItems('<plug>XWTags',    '生成函数跳转库', menuRoot)
 exec 'menu <silent> '. menuRoot .'.-Sep-    :'
 call s:CreateMenuItems("<plug>XWMenuGuides",     'Rails_Guides', menuRoot)
 call s:CreateMenuItems('<plug>XWMenuAgile',    'Agile_Web_Rails', menuRoot)
@@ -633,6 +634,7 @@ nnoremap <silent> <plug>XWMenuGems :call XWMenu(3)<cr>
 nnoremap <silent> <plug>XWLocalHost :call XWMenu(4)<cr>
 nnoremap <silent> <plug>XWMenuAgile :call XWMenu(5)<cr>
 nnoremap <silent> <plug>XWMenuDocMore :call XWMenu(6)<cr>
+nnoremap <silent> <plug>XWTags :call XWMenu(7)<cr>
 
 command! -nargs=1 Grep :call RunGrep('<args>')
 vmap <C-F> "+y:Grep <C-V><C-left> 

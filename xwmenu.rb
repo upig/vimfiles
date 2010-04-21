@@ -23,5 +23,14 @@ case command.to_i
     shell.Call(0, "open", '"'+vimfiles_path+'\0_Agile Web Development with Rails 3nd Edition Beta.pdf"', "", 0, 1)
   when 6
     shell.Call(0, "open", '"'+vimfiles_path+'\xw_docs_more"', "", 0, 1)
+  when 7
+    tags_path = ruby_path+'\lib\ruby\gems\1.8\gems\rails-2.3.5 '+
+                ruby_path+'\lib\ruby\gems\1.8\gems\activesupport-2.3.5'+
+                ruby_path+'\lib\ruby\gems\1.8\gems\activeresource-2.3.5'+
+                ruby_path+'\lib\ruby\gems\1.8\gems\activerecord-2.3.5'+
+                ruby_path+'\lib\ruby\gems\1.8\gems\actionpack-2.3.5'+
+                ruby_path+'\lib\ruby\gems\1.8\gems\actionmailer-2.3.5'+
+                ' .'
+    `"#{vimfiles_path}/ctags.exe" -R #{tags_path}`
 end
 
