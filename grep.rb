@@ -73,9 +73,9 @@ Dir.glob("**/#{$filetypes}").each {|fileName|
     count +=1
     if options[:plain]
       if options[:ignore]
-        puts (fileName+":#{count}: "+line).to_utf8 if line.upcase.include?(keyword.upcase)
+        puts((fileName+":#{count}: "+line).to_utf8) if line.upcase.include?(keyword.upcase)
       else
-        puts (fileName+":#{count}: "+line).to_utf8 if line.include?(keyword)
+        puts((fileName+":#{count}: "+line).to_utf8) if line.include?(keyword)
       end
     else
       if options[:ignore]
