@@ -1,5 +1,9 @@
 #only search app and lib Dir
 #xiangwei 31531640@qq.com
+
+require 'optparse'
+
+
 $KCODE='utf-8'
 require 'jcode'
 require'iconv'  
@@ -12,17 +16,58 @@ class String
   end  
 end 
 
-case ARGV[0]
-when '-a'
-  $search_pattern = /#{ARGV[1]}/
-  $filetypes = '*'
-when '-c'
-  $search_pattern = /#{ARGV[1]}/
-  $filetypes = '*.{c,cpp,h,hpp,txt,rc,s,asm}'
-else
-  $search_pattern = /#{ARGV[0]}/
-  $filetypes='*.{rb,erb,rjs,yml,haml,rake,builder,js,css,rhtml}'
+
+
+# This hash will hold all of the options
+# parsed from the command-line by
+# OptionParser.
+options = {}
+
+
+
+optparse = OptionParser.new do|opts|
+  # Set a banner, displayed at the top
+  # of the help screen.
+  opts.banner = "Search in Rails Files: grep.rb [options] pattern"
+
+  # Define the options, and what they do
+  options[:all] = false
+  opts.on( '-a', '--all', 'Search All File Types' ) do
+    options[:all] = true
+  end
+
+  options[:cpp] = false
+  opts.on( '-c', '--cpp', 'Search cpp File Types' ) do
+    options[:cpp] = true
+  end
+
+  options[:ignorecase] = false
+  opts.on( '-i', '--ignore', 'Ignore Case Sensative' ) do
+    options[:ignorecase] = true
+  end
+
+  options[:plain] = false
+  opts.on( '-p', '--plain', 'Don\'t use regex' ) do
+    options[:plain] = true
+  end
+
+  opts.on( '-h', '--help', 'Helping' ) do
+    puts opts
+    exit
+  end
 end
+
+optparse.parse!
+
+keyword = ARGV.join(' ') 
+
+$search_pattern = /#{keyword}/ 
+$search_pattern = keyword if options[:plain]
+
+$filetypes='*.{rb,erb,rjs,yml,haml,rake,builder,js,css,rhtml}'
+$filetypes = '*' if options[:all] 
+$filetypes = '*.{c,cpp,h,hpp,txt,rc,s,asm}' if options[:cpp]
+$filetypes = '*.{c,cpp,h,hpp,txt,rc,s,asm}' if options[:cpp]
 
 
 Dir.glob("**/#{$filetypes}").each {|fileName|
