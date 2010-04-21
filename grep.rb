@@ -41,9 +41,9 @@ optparse = OptionParser.new do|opts|
     options[:cpp] = true
   end
 
-  options[:ignorecase] = false
+  options[:ignore] = false
   opts.on( '-i', '--ignore', 'Ignore Case Sensative' ) do
-    options[:ignorecase] = true
+    options[:ignore] = true
   end
 
   options[:plain] = false
@@ -61,14 +61,9 @@ optparse.parse!
 
 keyword = ARGV.join(' ') 
 
-$search_pattern = /#{keyword}/ 
-$search_pattern = keyword if options[:plain]
-
 $filetypes='*.{rb,erb,rjs,yml,haml,rake,builder,js,css,rhtml}'
 $filetypes = '*' if options[:all] 
 $filetypes = '*.{c,cpp,h,hpp,txt,rc,s,asm}' if options[:cpp]
-$filetypes = '*.{c,cpp,h,hpp,txt,rc,s,asm}' if options[:cpp]
-
 
 Dir.glob("**/#{$filetypes}").each {|fileName|
   next if (fileName=~/(\.svn|\.git)\// || fileName=~/^(tmp|vendor)\//)
@@ -76,6 +71,18 @@ Dir.glob("**/#{$filetypes}").each {|fileName|
   next if File.directory?(fileName)
   File.new(fileName, 'r').each_line{ |line|
     count +=1
-    puts (fileName+":#{count}: "+line).to_utf8 if line=~$search_pattern
+    if options[:plain]
+      if options[:ignore]
+        puts (fileName+":#{count}: "+line).to_utf8 if line.upcase.include?(keyword.upcase)
+      else
+        puts (fileName+":#{count}: "+line).to_utf8 if line.include?(keyword)
+      end
+    else
+      if options[:ignore]
+        puts((fileName+":#{count}: "+line).to_utf8) if line=~/#{keyword}/i 
+      else
+        puts((fileName+":#{count}: "+line).to_utf8) if line=~/#{keyword}/
+      end
+    end
   }
 }
