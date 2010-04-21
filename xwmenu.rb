@@ -1,6 +1,6 @@
 ruby_path =  'c:\ruby'
 dos_env = `set`
-if dos_env=~/PATH=.*?;(.*?ruby.*?)\\bin/i
+if dos_env=~/PATH=.*;(.*?ruby.*?)\\bin/i
   ruby_path = $1
 end
 
@@ -19,5 +19,7 @@ case command.to_i
     shell.Call(0, "open", ruby_path+'\lib\ruby\gems\1.8\gems', '', 0, 1)
   when 4
     shell.Call(0, "open", 'http://127.0.0.1:3000', '', 0, 1)
+  when 5
+    shell.Call(0, "open", '"'+vimfiles_path+'\0_Agile Web Development with Rails 3nd Edition Beta.pdf"', "", 0, 1)
 end
 

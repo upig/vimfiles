@@ -30,11 +30,15 @@ $firstFlag = 0;
 If NOT WinExists($fxTitle) Then
 	ShellExecute("file:///"&@ScriptDir&"/rdoc/index.html")
 	$firstFlag =1
-	Sleep(3500)
+	Sleep(1000)
 EndIf
 
 WinActivate($fxTitle)
-WinWaitActive($fxTitle)
+if WinWaitActive($fxTitle, "", 2)== 0 Then
+	WinActivate($fxTitle)
+	exit
+Endif
+
 Send("^{F1}")
 
 
