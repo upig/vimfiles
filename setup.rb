@@ -27,8 +27,17 @@ command = ARGV[0]
 shell = Win32API.new("shell32", "ShellExecute", ['L', 'P', 'P', 'P', 'P', 'L'], 'L')
 shell.Call(0, "open", 'c:\WINDOWS\Fonts', '', 0, 1)
 
+
+ruby_path =  'c:\ruby'
+dos_env = `set`
+if dos_env=~/PATH=.*;(.*?ruby.*?)\\bin/i
+  ruby_path = $1
+end
+require 'ftools'
+File.copy('grep.rb', ruby_path+'/bin')
+
 puts 'Open windows Fonts, please copy MONACO.TTF to this window...'
-puts 'Then, Press anything to exit! '
+puts 'Press anything to exit! '
 
 
 `pause`

@@ -380,7 +380,7 @@ endif
 
 " CTRL-Z is Undo; not in cmdline though
 noremap <C-Z> u
-inoremap <C-Z> <C-O>u
+inoremap <C-Z> <C-w>
 
 " CTRL-Y is Redo (although not repeat); not in cmdline though
 noremap <C-Y> <C-R>
@@ -462,7 +462,6 @@ let g:fuzzy_ignore = "gems/*;log/*;vendor/*;coverage/*;test/coverage/*;"
 map <leader>b :FuzzyFinderBuffer<CR>
 
 
-vmap <F3> "zy/\V<C-R>=escape(@z,'\/')<CR><CR>:%s//<C-R>=escape(@+,'\/')<CR>/gc<left><left><left>
 
 autocmd  FileType ruby,eruby  call s:XwSetRubyConfig()
 
@@ -623,8 +622,8 @@ call s:CreateMenuItems("<plug>XWMenuGuides",     'Rails_Guides', menuRoot)
 call s:CreateMenuItems('<plug>XWMenuAgile',    'Agile_Web_Rails', menuRoot)
 call s:CreateMenuItems('<plug>XWMenuGems',    'Gems目录', menuRoot)
 call s:CreateMenuItems("<plug>XWMenuProgram",    'Programming_Ruby_chm', menuRoot)
-call s:CreateMenuItems('<plug>XWMenuRailsDoc',    'Help_Html_RDoc', menuRoot)
-call s:CreateMenuItems('<plug>XWMenuDocMore',    '更多文档', menuRoot)
+call s:CreateMenuItems('<plug>XWMenuRailsDoc',    'RDoc帮助', menuRoot)
+call s:CreateMenuItems('<plug>XWMenuDocMore',    '更多参考书', menuRoot)
 
 
 nnoremap <silent> <plug>XWMenuProgram :call XWMenu(0)<cr>
@@ -637,5 +636,8 @@ nnoremap <silent> <plug>XWMenuDocMore :call XWMenu(6)<cr>
 nnoremap <silent> <plug>XWTags :call XWMenu(7)<cr>
 
 command! -nargs=1 Grep :call RunGrep('<args>')
-vmap <C-F> "+y:Grep <C-V><C-left> 
+vmap <F3> "zy/\V<C-R>=escape(@z,'\/')<CR><CR>:%s//<C-R>=escape(@+,'\/')<CR>/gc<left><left><left>
+vmap <C-F> "+y/<C-V>
+vmap <C-G> "+y:Grep <C-V> 
+vnoremap <A-F8> =
 

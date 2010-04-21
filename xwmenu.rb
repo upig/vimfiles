@@ -10,7 +10,7 @@ shell = Win32API.new("shell32", "ShellExecute", ['L', 'P', 'P', 'P', 'P', 'L'], 
 puts command
 case command.to_i
   when 0
-    shell.Call(0, "open", '"'+vimfiles_path+'\ProgrammingRuby.chm"', "", 0, 1)
+    shell.Call(0, "open", '"'+vimfiles_path+'\xw_docs_more\ProgrammingRuby.chm"', "", 0, 1)
   when 1
     shell.Call(0, "open", '"'+vimfiles_path+'\rails_guides\index.html"', "", 0, 1)
   when 2
@@ -20,7 +20,7 @@ case command.to_i
   when 4
     shell.Call(0, "open", 'http://127.0.0.1:3000', '', 0, 1)
   when 5
-    shell.Call(0, "open", '"'+vimfiles_path+'\0_Agile Web Development with Rails 3nd Edition Beta.pdf"', "", 0, 1)
+    shell.Call(0, "open", '"'+vimfiles_path+'\xw_docs_more\0_Agile Web Development with Rails 3nd Edition Beta.pdf"', "", 0, 1)
   when 6
     shell.Call(0, "open", '"'+vimfiles_path+'\xw_docs_more"', "", 0, 1)
   when 7
