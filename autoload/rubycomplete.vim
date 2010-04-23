@@ -84,6 +84,12 @@ endfunction
 function! s:GetBufferRubySingletonMethods(name)
 endfunction
 
+function! s:xw_escvar(r)
+  let t = substitute(a:r,'\*','_','g')
+  let t = substitute(t,'\~','_','')
+  return t
+endfunction
+
 function! s:GetBufferRubyEntity( name, type, ... )
     let lastpos = getpos(".")
     let lastline = lastpos
@@ -94,7 +100,7 @@ function! s:GetBufferRubyEntity( name, type, ... )
 
     let stopline = 1
 
-    let crex = '^\s*\<' . a:type . '\>\s*\<' . a:name . '\>\s*\(<\s*.*\s*\)\?'
+    let crex = '^\s*\<' . a:type . '\>\s*\<' . s:xw_escvar(a:name) . '\>\s*\(<\s*.*\s*\)\?'
     let [lnum,lcol] = searchpos( crex, 'w' )
     "let [lnum,lcol] = searchpairpos( crex . '\zs', '', '\(end\|}\)', 'w' )
 
@@ -133,7 +139,7 @@ function! s:GetRubyVarType(v)
     let stopline = 1
     let vtp = ''
     let pos = getpos('.')
-    let sstr = '^\s*#\s*@var\s*'.a:v.'\>\s\+[^ \t]\+\s*$'
+    let sstr = '^\s*#\s*@var\s*'. s:xw_escvar(a:v).'\>\s\+[^ \t]\+\s*$'
     let [lnum,lcol] = searchpos(sstr,'nb',stopline)
     if lnum != 0 && lcol != 0
         call setpos('.',pos)
@@ -150,7 +156,7 @@ function! s:GetRubyVarType(v)
     let ctors = ctors.'\)'
 
     let fstr = '=\s*\([^ \t]\+.' . ctors .'\>\|[\[{"''/]\|%[xwQqr][(\[{@]\|[A-Za-z0-9@:\-()\.]\+...\?\|lambda\|&\)'
-    let sstr = ''.a:v.'\>\s*[+\-*/]*'.fstr
+    let sstr = ''. s:xw_escvar(a:v).'\>\s*[+\-*/]*'.fstr
     let [lnum,lcol] = searchpos(sstr,'nb',stopline)
     if lnum != 0 && lcol != 0
         let str = matchstr(getline(lnum),fstr,lcol)
