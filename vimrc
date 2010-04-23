@@ -232,7 +232,7 @@ else
     let g:CSApprox_loaded = 1
 endif
 
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
+"nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
@@ -583,19 +583,21 @@ noremap <C-K> <C-W>k
 noremap <C-L> <C-W>l
 noremap <C-H> <C-W>h
 
+"map <C-F8> :NERDTreeClose<CR>:TlistToggle<CR>  
 map <C-F8> :TlistToggle<CR>  
 let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
-let Tlist_Enable_Fold_Column = 0
-let Tlist_File_Fold_Auto_Close = 0
-let Tlist_Display_Prototype = 0
+"let Tlist_Enable_Fold_Column = 0
+"let Tlist_File_Fold_Auto_Close = 0
+"let Tlist_Display_Prototype = 0
 let Tlist_Compact_Format = 1 
 
 
 " 把 F8 映射到 启动NERDTree插件  
-let NERDTreeIgnore=['\.vim$', '\~$', '^coverage$', '^tmp$']
+let NERDTreeIgnore=['\.doc$', '\.exe$', '\~$', '^coverage$', '^tmp$', '^\.git$', '\.svn$']
 map <F8> :NERDTreeToggle<CR>  
+au VimEnter *  NERDTreeToggle
 "let NERDTreeMouseMode=3
 
 noremap <ESC> :cclose<CR><ESC>
@@ -640,4 +642,7 @@ vmap <F3> "zy/\V<C-R>=escape(@z,'\/')<CR><CR>:%s//<C-R>=escape(@+,'\/')<CR>/gc<l
 vmap <C-F> "+y/<C-V>
 vmap <C-G> "+y:Grep <C-V> 
 vnoremap <A-F8> =
+
+nnoremap <C-RightMouse> :ts<CR>
+
 
