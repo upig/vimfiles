@@ -1353,9 +1353,9 @@ function! s:Tlist_Window_Zoom()
         " Set the window size to the maximum possible without closing other
         " windows
         if g:Tlist_Use_Horiz_Window
-            resize
+            exe 'resize ' . g:Tlist_WinHeight*2
         else
-            vert resize
+            exe 'vert resize ' . g:Tlist_WinWidth*2
         endif
         let s:tlist_win_maximized = 1
     endif
