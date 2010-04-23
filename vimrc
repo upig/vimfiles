@@ -594,10 +594,19 @@ let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
 let Tlist_Compact_Format = 1 
 
 
+function! s:exec(cmd)
+    let old_ei = &ei
+    set ei=all
+    exec a:cmd
+    let &ei = old_ei
+endfunction
+
 " 把 F8 映射到 启动NERDTree插件  
 let NERDTreeIgnore=['\.doc$', '\.exe$', '\~$', '^coverage$', '^tmp$', '^\.git$', '\.svn$']
 map <F8> :NERDTreeToggle<CR>  
 au VimEnter *  NERDTreeToggle
+au VimEnter *  call s:exec('wincmd w')
+"noremap <C-L> <C-W>l
 "let NERDTreeMouseMode=3
 
 noremap <ESC> :cclose<CR><ESC>
