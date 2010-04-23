@@ -1,8 +1,10 @@
-ruby_path =  'c:\ruby'
-dos_env = `set`
-if dos_env=~/PATH=.*;(.*?ruby.*?)\\bin/i
-  ruby_path = $1
-end
+ruby_path_bin =  'c:\ruby\bin'
+
+ENV['PATH'].split(';').each {|path|
+  ruby_path_bin = path if path =~/.*ruby.*bin/i
+}
+ruby_path_bin =~ /(.*)[\\\/]bin/i
+ruby_path = $1
 
 vimfiles_path = File.expand_path(File.dirname(__FILE__))
 command = ARGV[0]
