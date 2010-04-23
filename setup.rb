@@ -7,7 +7,17 @@
 #user_path = $1
 
 vimfiles_path = File.expand_path(File.dirname(__FILE__))
+puts "vimfiles_path: #{vimfiles_path}"
+
 temp_path = ENV["temp"].gsub('\\', '/')
+puts "temp_path: #{temp_path}"
+
+ruby_path_bin =  'c:\ruby\bin'
+
+ENV['PATH'].split(';').each {|path|
+  ruby_path_bin = path if path =~/.*ruby.*bin/i
+}
+puts "ruby_path_bin: #{ruby_path_bin}"
 
 puts 'Generating _vimrc'
 
@@ -26,13 +36,6 @@ File.open('../_vimrc', 'w'){|f|
 command = ARGV[0]
 shell = Win32API.new("shell32", "ShellExecute", ['L', 'P', 'P', 'P', 'P', 'L'], 'L')
 shell.Call(0, "open", 'c:\WINDOWS\Fonts', '', 0, 1)
-
-
-ruby_path_bin =  'c:\ruby\bin'
-
-ENV['PATH'].split(';').each {|path|
-  ruby_path_bin = path if path =~/.*ruby.*bin/i
-}
 
 require 'ftools'
 File.copy('grep.rb', ruby_path_bin)
