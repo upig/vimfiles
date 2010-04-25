@@ -15,7 +15,11 @@ puts "temp_path: #{temp_path}"
 ruby_path_bin =  'c:\ruby\bin'
 
 ENV['PATH'].split(';').each {|path|
-  ruby_path_bin = path if path =~/.*ruby.*bin/i
+  if path =~/.*ruby.*bin/i
+    if File.exist?(File.join(path, 'ruby.exe')) 
+      ruby_path_bin = path 
+    end
+  end
 }
 puts "ruby_path_bin: #{ruby_path_bin}"
 
