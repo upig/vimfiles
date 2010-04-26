@@ -1,8 +1,13 @@
 ruby_path_bin =  'c:\ruby\bin'
 
 ENV['PATH'].split(';').each {|path|
-  ruby_path_bin = path if path =~/.*ruby.*bin/i
+  if path =~/.*ruby.*bin/i
+    if File.exist?(File.join(path, 'ruby.exe')) 
+      ruby_path_bin = path 
+    end
+  end
 }
+
 ruby_path_bin =~ /(.*)[\\\/]bin/i
 ruby_path = $1
 
